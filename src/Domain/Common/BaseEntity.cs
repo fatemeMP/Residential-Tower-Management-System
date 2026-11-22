@@ -1,25 +1,16 @@
 
 namespace Domain.Common;
 
-public abstract class BaseEntity
+
+public abstract class BaseEntity<TId> : IEntity
 {
-    public Guid Id {get; private set; } = Guid.NewGuid();
+    public TId Id {get; private set; } = default!;
 
-    public DateTime CreatedAt {get; private set; }
-
-    public DateTime? UpdateAt {get; private set; }
-
-    public void MarkAsCreated(DateTime utcNow)
+    public DateTime CreatedAt {get; private set; } 
+    protected BaseEntity()
     {
-        if(CreatedAt == default)
-        {
-            CreatedAt = utcNow;
-        }
+        CreatedAt = DateTime.UtcNow;
     }
-
-    public void MarkAsUpdated(DateTime utcNow)
-    {
-        UpdateAt = utcNow;
-    }
-
 }
+
+
