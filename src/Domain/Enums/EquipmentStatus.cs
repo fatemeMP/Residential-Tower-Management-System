@@ -6,4 +6,4 @@ public enum EquipmentStatus
     Active,
     InActive,
     Error
-}
+}§
