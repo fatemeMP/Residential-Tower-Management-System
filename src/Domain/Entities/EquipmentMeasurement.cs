@@ -20,6 +20,7 @@ public class EquipmentMeasurement :BaseEntity<Guid>
         ArgumentOutOfRangeException.ThrowIfNegative(powerConsumption, nameof(powerConsumption));
         ArgumentOutOfRangeException.ThrowIfEqual(measuredAt, DateTime.MinValue, nameof(measuredAt));
 
+        Id = Guid.NewGuid();
         EquipmentId = equipmentId;
         Status = status;
         PowerConsumption = powerConsumption;
