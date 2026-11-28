@@ -1,0 +1,17 @@
+services:
+
+  postgres:
+    image: postgres:latest
+    pull_policy: never
+    container_name: residential-tower-postgres
+    environment:
+      - POSTGRES_DB=residential-tower
+      - POSTGRES_USER=residential-tower-user
+      - POSTGRES_PASSWORD=residential-tower-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
